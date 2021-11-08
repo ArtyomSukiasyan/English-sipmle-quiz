@@ -853,7 +853,7 @@ const words = {
   решение: "solution",
   магнит: "magnet",
   серебро: "silver",
-  "спасибо  ": "thanks",
+  "спасибо": "thanks",
   ужин: "lunch",
   "совпадать / матч": "match",
   "угощение / обращаться": "treat",
