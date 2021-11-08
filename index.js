@@ -1,5 +1,6 @@
-const question = document.querySelector("question");
-const answer = document.querySelector("answer");
+const question = document.querySelector("#question");
+const answer = document.querySelector("#answer");
+const start = document.querySelector("#start");
 const submit = document.querySelector("#submit");
 
 const words = {
@@ -935,4 +936,9 @@ const words = {
   цена: "price",
 };
 
-
+start.addEventListener("click", () => {
+  const keys = Object.keys(words);
+  const randomQuetionNumber = Math.floor(Math.random() * keys.length);
+  const randomQuestion = keys[randomQuetionNumber]
+  question.textContent = keys[randomQuetionNumber]
+});
