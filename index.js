@@ -936,9 +936,26 @@ const words = {
   цена: "price",
 };
 
-start.addEventListener("click", () => {
+function startQuiz() {
   const keys = Object.keys(words);
   const randomQuetionNumber = Math.floor(Math.random() * keys.length);
-  const randomQuestion = keys[randomQuetionNumber]
-  question.textContent = keys[randomQuetionNumber]
-});
+  question.textContent = keys[randomQuetionNumber];
+  start.disabled = true;
+}
+
+function sumbitAnswer() {
+  const userAnswer = answer.value;
+  const question = document.querySelector("#question").innerText;
+  const rightAnswer = words[question];
+  if (userAnswer === rightAnswer) {
+    alert(true);
+    answer.value = ""
+    startQuiz()
+  } else {
+    alert(false);
+  }
+}
+
+start.addEventListener("click", startQuiz);
+
+submit.addEventListener("click", sumbitAnswer);
