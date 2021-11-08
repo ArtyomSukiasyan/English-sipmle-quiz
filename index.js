@@ -2,6 +2,7 @@ const question = document.querySelector("#question");
 const answer = document.querySelector("#answer");
 const start = document.querySelector("#start");
 const submit = document.querySelector("#submit");
+const showAnswerBtn = document.querySelector("#show");
 
 const words = {
   как: "how",
@@ -948,14 +949,19 @@ function sumbitAnswer() {
   const question = document.querySelector("#question").innerText;
   const rightAnswer = words[question];
   if (userAnswer === rightAnswer) {
-    alert(true);
-    answer.value = ""
-    startQuiz()
+    answer.value = "";
+    startQuiz();
   } else {
     alert(false);
   }
 }
 
-start.addEventListener("click", startQuiz);
+function showAnswer() {
+  const question = document.querySelector("#question").innerText;
+  const rightAnswer = words[question];
+  answer.value = rightAnswer;
+}
 
+start.addEventListener("click", startQuiz);
 submit.addEventListener("click", sumbitAnswer);
+showAnswerBtn.addEventListener("click", showAnswer);
