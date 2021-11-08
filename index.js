@@ -937,10 +937,16 @@ const words = {
   цена: "price",
 };
 
+const keys = Object.keys(words);
+
+function generateWord() {
+  const randomQuestionNumber = Math.floor(Math.random() * keys.length);
+  const generatedWord = keys[randomQuestionNumber];
+  question.textContent = generatedWord;
+}
+
 function startQuiz() {
-  const keys = Object.keys(words);
-  const randomQuetionNumber = Math.floor(Math.random() * keys.length);
-  question.textContent = keys[randomQuetionNumber];
+  generateWord();
   start.disabled = true;
 }
 
@@ -949,10 +955,18 @@ function sumbitAnswer() {
   const question = document.querySelector("#question").innerText;
   const rightAnswer = words[question];
   if (userAnswer === rightAnswer) {
-    answer.value = "";
-    startQuiz();
+    answer.style.borderColor = "green";
+    setTimeout(() => {
+      answer.style.borderColor = "black";
+      answer.value = "";
+      generateWord();
+    }, 1000);
   } else {
-    alert(false);
+    answer.style.borderColor = "red";
+    setTimeout(() => {
+      answer.style.borderColor = "black";
+      answer.value = "";
+    }, 1000);
   }
 }
 

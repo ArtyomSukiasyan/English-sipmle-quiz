@@ -6,3 +6,8 @@
     flex-direction: column;
     overflow: hidden;
 }
+
+input {
+    border-color: black;
+    border-radius: 5px;
+}
