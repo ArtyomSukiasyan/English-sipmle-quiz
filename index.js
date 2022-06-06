@@ -951,7 +951,7 @@ function startQuiz() {
 }
 
 function sumbitAnswer() {
-  const userAnswer = answer.value;
+  const userAnswer = answer.value.toLowerCase();
   const question = document.querySelector("#question").innerText;
   const rightAnswer = words[question];
   if (userAnswer === rightAnswer) {
