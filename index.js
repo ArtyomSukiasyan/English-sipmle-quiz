@@ -979,3 +979,9 @@ function showAnswer() {
 start.addEventListener("click", startQuiz);
 submit.addEventListener("click", sumbitAnswer);
 showAnswerBtn.addEventListener("click", showAnswer);
+
+answer.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    sumbitAnswer()
+  }
+});
